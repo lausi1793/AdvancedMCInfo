@@ -1,0 +1,40 @@
+name: AdvancedMcInfo
+main: at.mcnetwork.lausi.AdvancedMcInfo
+version: 1.2.3
+author: LauseggerDevelopment
+website: http://McNetwork.at
+commands:
+  ami:
+    usage: /ami
+    description: Small Overview of the commands.
+  skype:
+    usage: /skype
+    description: Skype name of the server owner.
+  ts3:
+    usage: /ts3
+    description: Displays the Internet path of our Ts3 Server.
+  website:
+    usage: /website
+    description: Displays the Internet path our website.
+  forum:
+    usage: /forum
+    description: Displays the Internet path our forum.
+  vote:
+    usage: /vote
+    description: Displays the Vote Link of the MinecraftServer.
+  ip:
+    usage: /ip
+    description: Displays the IP of the MinecraftServer.
+  amireload:
+    usage: /amireload
+    description: Reload of the config.yml
+    permission: advancedmcinfo.reload
+    
+permissions:
+  advancedmcinfo.*:
+    description: Only OP
+    children:
+      advancedmcinfo.reload: true
+    default: op
+  advancedmcinfo.reload:
+    description: Reload of the config.yml

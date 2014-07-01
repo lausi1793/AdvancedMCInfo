@@ -1,6 +1,6 @@
 name: AdvancedMcInfo
 main: at.mcnetwork.lausi.AdvancedMcInfo
-version: 1.2.3
+version: 1.2.4
 author: LauseggerDevelopment
 website: http://McNetwork.at
 commands:
@@ -25,10 +25,6 @@ commands:
   ip:
     usage: /ip
     description: Displays the IP of the MinecraftServer.
-  amireload:
-    usage: /amireload
-    description: Reload of the config.yml
-    permission: advancedmcinfo.reload
     
 permissions:
   advancedmcinfo.*:

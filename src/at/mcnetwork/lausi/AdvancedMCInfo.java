@@ -41,23 +41,41 @@ public class AdvancedMcInfo extends JavaPlugin {
 	      p = (Player)sender;
 	    }
 	
-	if (cmd.getName().equalsIgnoreCase("ami"))
-    {
-      if (p != null)
-      {
-        p.sendMessage("§e==========[ AdvancedMcInfo Help Version: " + ChatColor.YELLOW + version + " §e]==========");
-        p.sendMessage(ChatColor.GREEN + "Hy " + p.getDisplayName() + ChatColor.GREEN + "! Here are all the commands of AdvancedMcInfo");
-        p.sendMessage("§9/help AdvancedMcInfo §aShows you all the commands that are available.\n");
+	    if (cmd.getName().equalsIgnoreCase("ami"))
+	    {
+	      if (p != null)
+	      {
+	    	  if(args.length == 0){
+	        p.sendMessage("§e==========[ AdvancedMcInfo Help Version: " + ChatColor.YELLOW + version + " §e]==========");
+        	p.sendMessage(ChatColor.GREEN + "Hy " + p.getDisplayName() + ChatColor.GREEN + "! Here are all the commands of AdvancedMcInfo");
+        	p.sendMessage("§9/help AdvancedMcInfo §aShows you all the commands that are available.\n");
 
-        p.sendMessage("§5Version: " + ChatColor.DARK_PURPLE + version);
-        p.sendMessage("§5Created by: " + ChatColor.DARK_PURPLE + "lausi1793");
-        p.sendMessage("§e==========[ AdvancedMcInfo Help Version: " + ChatColor.YELLOW + version + " §e]==========");
+        	p.sendMessage("§5Version: " + ChatColor.DARK_PURPLE + version);
+        	p.sendMessage("§5Created by: " + ChatColor.DARK_PURPLE + "lausi1793");
+        	p.sendMessage("§e==========[ AdvancedMcInfo Help Version: " + ChatColor.YELLOW + version + " §e]==========");
 
-        return true;
-      }else{
-      sender.sendMessage("This command is not supported for the console.");
-      }
-    }
+	        return true;
+	    	  }
+	    	  if(args[0].equalsIgnoreCase("reload")){
+	    		  if (p.hasPermission("advancedmcinfo.reload")) {
+			          reloadConfig();
+			          p.sendMessage(ChatColor.GREEN + "Reloaded " + getDescription().getName() + " config.yml!");
+			          return true;
+			        }else{
+			        	 p.sendMessage("§cYou dont have the permission\n§c-advancedmcinfo.reload");
+			        	 return true;
+			        }
+	    	  }
+	    	  
+	    	  if(args.length > 1){
+	    		  
+	    		  p.sendMessage("§cToo many arguments!\n§a/ami - Information about the plugin\n/ami reload - reloads the config.yml");
+	    		  
+	    	  }
+	      }else{
+	      sender.sendMessage("This command is not supported for the console.");
+	      }
+	   }
     
     if (cmd.getName().equalsIgnoreCase("forum"))
     {
@@ -113,19 +131,6 @@ public class AdvancedMcInfo extends JavaPlugin {
 
 	        return true;
 	      }
-	    }
-      if (cmd.getName().equalsIgnoreCase("amireload")) {
-	      if (p != null) {
-	        if (p.hasPermission("advancedmcinfo.reload")) {
-	          reloadConfig();
-	          p.sendMessage(ChatColor.GREEN + "Reloaded " + getDescription().getName() + " config.yml!");
-	          return true;
-	        }
-	      }
-	      else {
-	        sender.sendMessage("This command is not supported for the console.");
-	      }
-	      return true;
 	    }
       return false;
 	  }
